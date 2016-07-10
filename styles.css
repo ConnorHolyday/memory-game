@@ -1,0 +1,87 @@
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: cell;
+}
+
+main {
+	width: 600px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+figure {
+	margin: 0;
+}
+
+.card {
+	width: 20%;
+	flex-basis: calc(25% - 1.5em);
+	flex-grow: 0;
+	margin: 1em 0;
+	border-radius: 4px;
+	overflow: hidden;
+	position: relative;
+
+	-webkit-perspective: 1000;
+	-moz-perspective: 1000;
+	-o-perspective: 1000;
+	perspective: 1000;
+}
+
+.card.is-active .card__inner,
+.card.is-match .card__inner {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.card.is-match {
+	pointer-events: none;
+}
+
+.card.is-match:after {
+	content: '\2713';
+	font-size: 72px;
+	color: white;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #2ecc71;
+	background-color: rgba(46, 204, 113, .9);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.card__inner {
+	transition: .6s;
+	transform-style: preserve-3d;
+}
+
+img {
+	max-width: 100%;
+	backface-visibility: hidden;
+	z-index: 2;
+}
+
+img:last-child {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}

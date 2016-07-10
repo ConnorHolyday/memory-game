@@ -1,27 +1,21 @@
 var webpack = require('webpack');
 var path = require('path');
 
-const APP_DIR = path.resolve(__dirname, 'src/client/app');
-const BUILD_DIR = path.resolve(__dirname, 'src/client/public');
+const APP_DIR = path.resolve(__dirname, 'assets/scripts');
 
 const config = {
-	entry: APP_DIR + '/index.jsx',
+	entry: APP_DIR + '/main.js',
 	output: {
-		path: BUILD_DIR,
+		path: APP_DIR,
 		filename: 'bundle.js'
 	},
 	module: {
 		loaders: [
 			{
-				test: /\.jsx?/,
+				test: /\.js$/,
 				include: APP_DIR,
 				loader: 'babel'
 			},
-			{
-				test: /\.json/,
-				include: APP_DIR,
-				loader: 'json'
-			}
 		]
 	}
 };
